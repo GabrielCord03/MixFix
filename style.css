@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+  }
+  
+  header {
+    background-color: #22c55e; /* verde */
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    flex: 1;
+    color: white;
+  }
+  
+  header .avatar {
+    background-color: white;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+  }
+  
+  header .avatar:hover {
+    opacity: 0.9;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 24px;
+  }
+  
+  main h2 {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    max-width: 640px;
+    margin-bottom: 48px;
+  }
+  
+  .emoji-box {
+    border: 2px solid #facc15; /* amarelo */
+    border-radius: 12px;
+    padding: 8px;
+    font-size: 32px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+  }
+  
+  .emoji-box:hover {
+    transform: scale(1.1);
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 16px;
+    background-color: transparent;
+    border: 2px solid #374151; /* cinza escuro */
+    border-radius: 9999px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s;
+    margin-bottom: 32px;
+  }
+  
+  input[type="text"]::placeholder {
+    color: #9ca3af;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #22c55e;
+  }
+  
+  button {
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    padding: 16px 40px;
+    border: none;
+    border-radius: 9999px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #16a34a;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: black;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+  }
+  
+  
+  .header {
+    width: 100%;
+    background-color: #22c55e; /* Tailwind green-500 */
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .profile-icon {
+    width: 48px;
+    height: 48px;
+    background-color: white;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .profile-icon:hover {
+    transform: scale(1.05);
+  }
+  
+  .profile-icon svg {
+    width: 32px;
+    height: 32px;
+    color: black;
+  }
+  
+  
+  .main {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 400px;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .playlist-cover {
+    width: 192px;
+    height: 192px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 4px;
+    margin: 48px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+  
+  .playlist-cover:hover {
+    transform: scale(1.05);
+  }
+  
+  .playlist-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .success-message {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  
+  .spotify-button {
+    background-color: #22c55e;
+    color: white;
+    font-weight: bold;
+    padding: 16px 40px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 64px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spotify-button:hover {
+    background-color: #16a34a;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+  
+  
+  .footer {
+    width: 100%;
+    height: 32px;
+    background: linear-gradient(to right, #16a34a, #22c55e);
+  }
