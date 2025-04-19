@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log('Token salvo com sucesso!');
     localStorage.setItem('spotify_userId', userId);
     console.log('User_ID salvo com sucesso!');
-    window.history.replaceState({}, document.title, '/home.html');
+    window.history.replaceState({}, document.title, '/index.html');
   } else {
     console.warn('Token não encontrado na URL.');
   }
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       
         // Usando o endpoint correto com userId incluído
-        fetch(`https://mixfix.onrender.com/generate-playlist?emoji=${encodeURIComponent(emoji)}&token=${token}&userId=${userId}`)
+        fetch(`https://mixfix.onrender.com/generate-playlist?emoji=${encodeURIComponent(emoji)}&token=${token}&userId=${encodeURIComponent(userId)}`)
           .then(response => {
             if (!response.ok) {
               throw new Error('Erro ao gerar playlist');
@@ -90,7 +90,6 @@ window.addEventListener('DOMContentLoaded', () => {
           });
       });
 
-      params = new URLSearchParams(window.location.search);
       const playlistId = params.get('playlistId');
 
       if (playlistId) {
