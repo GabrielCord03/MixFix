@@ -3,14 +3,13 @@ const qs = require('qs');
 
 const clientId = process.env.SPOTIFY_CLIENT_ID;
 const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
-const redirectUri = process.env.SPOTIFY_REDIRECT_URI;
+const redirectUri = process.env.REDIRECT_URI;
 
 function getAuthUrl() {
-  const scopes = 'playlist-modify-private playlist-modify-public';
+  const scopes = '';
 
   return `https://accounts.spotify.com/authorize?` +
-    `client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}` +
-    `&scope=${encodeURIComponent(scopes)}`;
+    `client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}`
 }
 
 async function getTokens(code) {
