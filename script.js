@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   
     if (loginBtn) {
       loginBtn.addEventListener('click', () => {
-        window.location.href = 'http://localhost:5500/login';
+        window.location.href = 'http://mixfix.onrender.com/login';
       });
     }
 
