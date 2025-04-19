@@ -6,10 +6,14 @@ const clientSecret = process.env.SPOTIFY_CLIENT_SECRET;
 const redirectUri = process.env.REDIRECT_URI;
 
 function getAuthUrl() {
-  const scopes = '';
+  const scopes = [
+    'playlist-modify-private',
+    'playlist-modify-public',
+    'user-read-private'
+  ];
 
   return `https://accounts.spotify.com/authorize?` +
-    `client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}`
+  `client_id=${clientId}&response_type=code&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes.join(' '))}`;
 }
 
 async function getTokens(code) {
