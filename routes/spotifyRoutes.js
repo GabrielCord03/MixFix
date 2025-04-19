@@ -35,7 +35,7 @@ router.get('/callback', async (req, res) => {
 });
 
 router.get('/generate-playlist', async (req, res) => {
-  const { emoji, token } = req.query;
+  const { emoji, token, userId } = req.query;
 
   // Mapear emojis para moods
   const moodMap = {
