@@ -59,15 +59,26 @@ window.addEventListener('DOMContentLoaded', () => {
           alert('Selecione um emoji ou insira uma palavra.');
           return;
         }
-
+      
         const emoji = selectedEmoji || emojiInput.value;
         const token = localStorage.getItem('spotify_token');
-
-        fetch(`https://mixfix.onrender.com/generate-playlist?emoji=${encodeURIComponent(emoji)}&token=${token}`)
-          .then(response => response.json())
+        const userId = localStorage.getItem('spotify_userId');
+      
+        if (!token || !userId) {
+          alert('Usuário não autenticado.');
+          return;
+        }
+      
+        // Usando o endpoint correto com userId incluído
+        fetch(`https://mixfix.onrender.com/generate-playlist?emoji=${encodeURIComponent(emoji)}&token=${token}&userId=${userId}`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao gerar playlist');
+            }
+            return response.json();
+          })
           .then(data => {
             if (data.playlistUrl) {
-              // Redirecionar para a playlist criada
               window.location.href = data.playlistUrl;
             } else {
               alert('Erro ao criar a playlist.');
@@ -77,29 +88,6 @@ window.addEventListener('DOMContentLoaded', () => {
             console.error('Erro ao gerar playlist:', err);
             alert('Houve um erro ao criar a playlist.');
           });
-      });
-      
-      document.getElementById('generatePlaylistBtn').addEventListener('click', () => {
-        const mood = document.querySelector('.selected-emoji').innerText; // Pegue o emoji ou o "mood" selecionado
-        const token = localStorage.getItem('spotify_token');
-        const userId = localStorage.getItem('spotify_userId');
-      
-        if (token && userId && mood) {
-          fetch('http://localhost:3000/create-playlist', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ token, userId, mood }),
-          })
-            .then(res => res.json())
-            .then(data => {
-              console.log('Playlist criada:', data);
-              // Redirecionar para a page2.html com a playlist criada
-              window.location.href = `Page2.html?playlistId=${data.playlistId}`;
-            })
-            .catch(err => console.error('Erro ao criar a playlist:', err));
-        }
       });
 
       params = new URLSearchParams(window.location.search);

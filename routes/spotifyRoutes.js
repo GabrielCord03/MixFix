@@ -54,7 +54,7 @@ router.get('/generate-playlist', async (req, res) => {
   try {
     // Criação da playlist no Spotify
     const response = await axios.post(
-      'https://api.spotify.com/v1/users/YOUR_USER_ID/playlists',
+      `https://api.spotify.com/v1/users/${userId}/playlists`,
       {
         name: `Mix&Fix - ${mood}`,
         description: `Playlist para o mood: ${emoji}`,
@@ -73,7 +73,7 @@ router.get('/generate-playlist', async (req, res) => {
     res.json({ message: 'Playlist criada', playlistUrl });
   } catch (error) {
     console.error(error.response?.data || error);
-    res.status(500).send('Erro ao criar playlist');
+    res.status(500).json({ error: 'Erro ao criar playlist' });
   }
 });
 
@@ -103,7 +103,7 @@ router.post('/create-playlist', async (req, res) => {
     });
   } catch (err) {
     console.error('Erro ao criar playlist:', err);
-    res.status(500).send('Erro ao criar playlist');
+    res.status(500).json({ error: 'Erro ao criar playlist' });
   }
 });
 
