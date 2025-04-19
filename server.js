@@ -1,14 +1,21 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
-
 const spotifyRoutes = require('./routes/spotifyRoutes');
 
 const app = express();
-app.use(cors()); // permite o frontend acessar
+const PORT = process.env.PORT || 5500;
+
+app.use(cors());
+app.use(express.json());
 
 app.use('/', spotifyRoutes);
 
-app.listen(5500, () => {
-  console.log('Servidor rodando em http://localhost:5500');
+// Se quiser testar no navegador com uma resposta simples
+app.get('/', (req, res) => {
+  res.send('MixFix API está rodando 🚀');
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
 });
